@@ -1,0 +1,98 @@
+
+  <!-- ==========================================personal form=============================================== -->
+<div class="container" style="margin-left:10cm;width:20cm;">
+	<div *ngIf="personal">
+		<h3>Add personal inforamtion</h3>
+		<form [formGroup]="fresherRegistrationFormGroup">
+			<div class="form-group">
+				<input type="text" class="form-control" formControlName="userName" placeholder="enter full name" required>
+				<small class="form-text text-danger" *ngIf="fresherRegistrationFormGroup.controls.userName.invalid && fresherRegistrationFormGroup.controls.userName.touched" >this feild is require</small>
+			</div>
+			<div class="form-group">
+				<input type="email" class="form-control" formControlName="emailId" placeholder="enter emailid" required>
+				<small class="form-text text-danger" *ngIf="fresherRegistrationFormGroup.controls.emailId.invalid && fresherRegistrationFormGroup.controls.emailId.touched" >emailId is invalid</small>
+			</div>
+			<div class="form-group">
+				<input type="password" class="form-control" formControlName="password" placeholder="enter password" required>
+				<small class="form-text text-danger" *ngIf="fresherRegistrationFormGroup.controls.password.invalid && fresherRegistrationFormGroup.controls.password.touched" >password is invalid</small>
+			</div>
+			<div class="form-group">
+				<input type="text" class="form-control" formControlName="mobileNumber" placeholder="enter mobile number" required>
+				<small class="form-text text-danger" *ngIf="fresherRegistrationFormGroup.controls.mobileNumber.invalid && fresherRegistrationFormGroup.controls.mobileNumber.touched" >mobileNumber is invalid</small>
+			</div>
+			<div class="form-group">
+				<input type="text" class="form-control" formControlName="city" placeholder="city name" required>
+				<small class="form-text text-danger" *ngIf="fresherRegistrationFormGroup.controls.city.invalid && fresherRegistrationFormGroup.controls.city.touched" >city name is invalid</small>
+			</div>
+			<div class="form-group">
+				<input type="file" class="form-control" formControlName="resume" placeholder="upload resume" required>
+			</div>
+			<button class="btn btn-primary btn-block"  (click)="registerUser()">Register</button>
+			<!-- <button class="btn btn-primary btn-block" [disabled]="!fresherRegistrationFormGroup.valid" (click)="registerUser()">Register</button> -->
+		</form>
+	</div>
+  <!-- ==========================================education form=============================================== -->
+	<div *ngIf="education">
+		<h3>Add educational inforamtion</h3>
+		<form [formGroup]="fresherEducationFormGroup">
+      <div class="form-group">
+			<input type="text" class="form-control" formControlName="qualification" placeholder="qualification" required>
+				<small class="form-text text-danger" *ngIf="fresherEducationFormGroup.controls.qualification.invalid && fresherEducationFormGroup.controls.qualification.touched" >this feild is require</small>
+			</div>
+			<div class="form-group">
+			<input type="text" class="form-control" formControlName="course" placeholder="enter course" required>
+				<small class="form-text text-danger" *ngIf="fresherEducationFormGroup.controls.course.invalid && fresherEducationFormGroup.controls.course.touched" >this feild is require</small>
+			</div>
+      <div class="form-group">
+			<input type="text" class="form-control" formControlName="specialization" placeholder="enter specialization"required>
+				<small class="form-text text-danger" *ngIf="fresherEducationFormGroup.controls.specialization.invalid && fresherEducationFormGroup.controls.specialization.touched" >this feild is require</small>
+			</div>      
+      <div class="form-group">
+			<input type="text" class="form-control" formControlName="institute" placeholder="enter university/collage name" required>
+				<small class="form-text text-danger" *ngIf="fresherEducationFormGroup.controls.institute.invalid && fresherEducationFormGroup.controls.institute.touched" >this feild is require</small>
+			</div>
+      <div class="form-row" style="margin-top: 0.5em;">
+        <select class="form-control" formControlName="courceType" style="width:9cm;">
+          <option selected=""value="" disabled >cource type</option>
+          <option>Full Time</option>
+          <option>Part Time</option>
+          <option>Corresspondence</option>
+        </select>&nbsp;&nbsp;&nbsp;		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;				
+			<!-- <input type="text" class="form-control" formControlName="courceType" placeholder="courceType" required> -->
+				<small class="form-text text-danger" *ngIf="fresherEducationFormGroup.controls.courceType.invalid && fresherEducationFormGroup.controls.courceType.touched" >this feild is require</small>
+        <select formControlName="passingYear" class="form-control" style="width:9cm;">
+              <option disabled="" value="" selected="" aria-multiline="false">passing year</option>
+              <option>2020</option>
+              <option>2019</option>
+              <option>2018</option>
+              <option>2017</option>
+              <option>2016</option>
+              <option>2015</option>
+              <option>2014</option>
+              <option>2013</option>
+              <option>2012</option>
+              <option>2011</option>
+              <option>2010</option>
+            </select>		
+			<!-- <input type="number" class="form-control" formControlName="passingYear" placeholder="passingYear" required> -->
+				<small class="form-text text-danger" *ngIf="fresherEducationFormGroup.controls.passingYear.invalid && fresherEducationFormGroup.controls.passingYear.touched" >this feild is require</small>
+			</div>
+			<div class="form-row" style="margin-top: 1em;">
+				<div class="col">
+					<div class="md-form">
+						<input type="button" class="form-control" class="btn btn-primary" (click)="addSkill()" value="addSkill">
+          </div>
+					</div>
+				</div>
+
+				<div formArrayName="skills"
+					*ngFor="let skill of fresherEducationFormGroup.controls.skills?.value; let i=index">
+					<div [formGroupName]="i">
+						<input class="form-control" formControlName="skillName" placeholder="Add New skillName"><br>
+        </div>
+					</div>
+					<!-- <input type="text" class="form-control" formControlName="skills" placeholder="skills"> -->
+					<button class="btn btn-primary btn-block"[disabled]="!fresherEducationFormGroup.valid" style="margin-top:1cm;" (click)="addEducationDetail()">Continue</button>
+		</form>
+	</div>
+</div>

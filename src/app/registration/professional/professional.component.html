@@ -1,0 +1,332 @@
+<!-- ==========================================personal form=============================================== -->
+<div class="container" style="margin-left:10cm;width:20cm;">
+	<div *ngIf="personal">
+		<h3>Add personal inforamtion</h3>
+		<form [formGroup]="professionalUserRegistrationFormGroup">
+			<div class="form-group">
+				<input type="text" class="form-control" formControlName="userName" placeholder="enter full name" required>
+				<small class="form-text text-danger" *ngIf="professionalUserRegistrationFormGroup.controls.userName.invalid && professionalUserRegistrationFormGroup.controls.userName.touched" >this feild is require</small>
+			</div>
+			<div class="form-group">
+				<input type="email" class="form-control" formControlName="emailId" placeholder="enter emailid" required>
+				<small class="form-text text-danger" *ngIf="professionalUserRegistrationFormGroup.controls.emailId.invalid && professionalUserRegistrationFormGroup.controls.emailId.touched" >emailId is invalid</small>
+			</div>
+			<div class="form-group">
+				<input type="password" class="form-control" formControlName="password" placeholder="enter password" required>
+				<small class="form-text text-danger" *ngIf="professionalUserRegistrationFormGroup.controls.password.invalid && professionalUserRegistrationFormGroup.controls.password.touched" >password is invalid</small>
+			</div>
+			<div class="form-group">
+				<input type="number" class="form-control" formControlName="mobileNumber" placeholder="enter mobile number" required>
+				<small class="form-text text-danger" *ngIf="professionalUserRegistrationFormGroup.controls.mobileNumber.invalid && professionalUserRegistrationFormGroup.controls.mobileNumber.touched" >mobileNumber is invalid</small>
+			</div>
+			<label>Total work Experience</label>
+			<div class="form-row" style="margin-top: 0.5em;">
+				<select formControlName="yearExperience" class="form-control" style="width:6cm;">
+              <option disabled="" value="" selected="" aria-multiline="false">select</option>
+              <option>0</option>
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+              <option>5+</option>
+              <option>10+</option>
+              <option>15+</option>
+              <option>20+</option>
+              <option>25+</option>
+              <option>30+</option>
+            </select>&nbsp;&nbsp;&nbsp;
+				<label>Year(s)</label>&nbsp;&nbsp;&nbsp;&nbsp;
+				<small class="form-text text-danger" *ngIf="professionalUserRegistrationFormGroup.controls.yearExperience.invalid && professionalUserRegistrationFormGroup.controls.yearExperience.touched" >Input is invalid</small>
+				<select formControlName="monthExperience" class="form-control" style="width:6cm;">
+              <option disabled=""  value=""selected="" aria-multiline="false">select</option>
+              <option>0</option>
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+              <option>6</option>
+              <option>7</option>
+              <option>8</option>
+              <option>9</option>
+              <option>10</option>
+              <option>11</option>
+            </select>&nbsp;&nbsp;&nbsp;&nbsp;
+				<label>Month(s)</label>
+				<small class="form-text text-danger" *ngIf="professionalUserRegistrationFormGroup.controls.monthExperience.invalid && professionalUserRegistrationFormGroup.controls.monthExperience.touched" >Input is invalid</small>
+			</div>
+			<div class="form-group" style="margin-top:1em;">
+				<input type="file" class="form-control" formControlName="resume" placeholder="upload resume" required>
+			</div>
+			<!-- <button class="btn btn-primary btn-block"  (click)="registerUser()">Register</button> -->
+			<button class="btn btn-primary btn-block" [disabled]="!professionalUserRegistrationFormGroup.valid" (click)="registerUser()">Register</button>
+		</form>
+	</div>
+	<!-- ==========================================employment form=============================================== -->
+	<div *ngIf="employment">
+		<h3>Add employment inforamtion</h3>
+		<form [formGroup]="employmentFormGroup">
+			<div class="form-group">
+				<input type="text" class="form-control" formControlName="designation" placeholder="qualification" required>
+				<small class="form-text text-danger" *ngIf="employmentFormGroup.controls.designation.invalid && employmentFormGroup.controls.designation.touched" >this feild is require</small>
+			</div>
+			<div class="form-group">
+				<input type="text" class="form-control" formControlName="companyName" placeholder="enter course" required>
+				<small class="form-text text-danger" *ngIf="employmentFormGroup.controls.companyName.invalid && employmentFormGroup.controls.companyName.touched" >this feild is require</small>
+			</div>
+			<label>Annual Salary</label>
+			<div class="form-row" style="margin-top: 0.5em;">
+				<select formControlName="salaryLakhs" class="form-control" style="width:6cm;">
+              <option disabled="" value="" selected="" aria-multiline="false">select</option>
+              <option>0</option>
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+              <option>5+</option>
+              <option>10+</option>
+              <option>15+</option>
+              <option>20+</option>
+              <option>25+</option>
+              <option>30+</option>
+            </select>&nbsp;&nbsp;&nbsp;
+				<label>Lakhs</label>&nbsp;&nbsp;&nbsp;&nbsp;
+				<small class="form-text text-danger" *ngIf="employmentFormGroup.controls.salaryLakhs.invalid && employmentFormGroup.controls.salaryLakhs.touched" >Input is invalid</small>
+				<select formControlName="salaryThousands" class="form-control" style="width:6cm;">
+              <option disabled="" value="" selected="" aria-multiline="false">select</option>
+              <option>5+</option>
+              <option>15+</option>
+              <option>20+</option>
+              <option>25+</option>
+              <option>30+</option>
+              <option>35+</option>
+              <option>40+</option>
+              <option>45+</option>
+              <option>50+</option>
+              <option>55+</option>
+              <option>60+</option>
+              <option>65+</option>
+              <option>70+</option>
+              <option>75+</option>
+              <option>80+</option>
+              <option>85+</option>
+              <option>90+</option>
+              <option>95+</option>
+            </select>&nbsp;&nbsp;&nbsp;&nbsp;
+				<label>Thousands</label>
+				<small class="form-text text-danger" *ngIf="employmentFormGroup.controls.salaryThousands.invalid && employmentFormGroup.controls.salaryThousands.touched" >Input is invalid</small>
+			</div>
+			<label>Working Since</label>
+			<div class="form-row" style="margin-top: 0.5em;">
+				<select formControlName="startYear" class="form-control" style="width:4cm;">
+              <option disabled="" value="" selected="" aria-multiline="false">year</option>
+              <option>2020</option>
+              <option>2019</option>
+              <option>2018</option>
+              <option>2017</option>
+              <option>2016</option>
+              <option>2015</option>
+              <option>2014</option>
+              <option>2013</option>
+              <option>2012</option>
+              <option>2011</option>
+              <option>2010</option>
+            </select>&nbsp;&nbsp;&nbsp;
+				<small class="form-text text-danger" *ngIf="employmentFormGroup.controls.startYear.invalid && employmentFormGroup.controls.startYear.touched" >Input is invalid</small>
+				<select formControlName="startMonth" class="form-control" style="width:4cm;">
+              <option disabled="" value="" selected="" aria-multiline="false">month</option>
+              <option>January</option>
+              <option>February</option>
+              <option>March</option>
+              <option>April</option>
+              <option>May</option>
+              <option>June</option>
+              <option>July</option>
+              <option>August</option>
+              <option>September</option>
+              <option>October</option>
+              <option>Navember</option>
+              <option>December</option>
+            </select>&nbsp;&nbsp;&nbsp;&nbsp;
+				<small class="form-text text-danger" *ngIf="employmentFormGroup.controls.startMonth.invalid && employmentFormGroup.controls.startMonth.touched" >Input is invalid</small>
+				<label> To</label>&nbsp;&nbsp;&nbsp;
+				<select formControlName="endYear" class="form-control" style="width:4cm;">
+              <option disabled="" value="" selected="" aria-multiline="false">year</option>
+              <option>2020</option>
+              <option>2019</option>
+              <option>2018</option>
+              <option>2017</option>
+              <option>2016</option>
+              <option>2015</option>
+              <option>2014</option>
+              <option>2013</option>
+              <option>2012</option>
+              <option>2011</option>
+              <option>2010</option>
+            </select>&nbsp;&nbsp;&nbsp;
+				<small class="form-text text-danger" *ngIf="employmentFormGroup.controls.endYear.invalid && employmentFormGroup.controls.endYear.touched" >Input is invalid</small>
+				<select formControlName="endMonth" class="form-control" style="width:4cm;">
+              <option disabled="" value="" selected="" aria-multiline="false">month</option>
+              <option>January</option>
+              <option>February</option>
+              <option>March</option>
+              <option>April</option>
+              <option>May</option>
+              <option>June</option>
+              <option>July</option>
+              <option>August</option>
+              <option>September</option>
+              <option>October</option>
+              <option>Navember</option>
+              <option>December</option>
+            </select>&nbsp;&nbsp;&nbsp;&nbsp;
+				<small class="form-text text-danger" *ngIf="employmentFormGroup.controls.endMonth.invalid && employmentFormGroup.controls.endMonth.touched" >Input is invalid</small>
+			</div>
+			<div class="form-group" style="margin-top:1em;">
+				<input type="text" class="form-control" formControlName="city" placeholder="city name" required>
+				<small class="form-text text-danger" *ngIf="employmentFormGroup.controls.city.invalid && employmentFormGroup.controls.city.touched" >Input is invalid</small>
+			</div>
+			<div class="form-group">
+				<select class="form-control" formControlName="noticePeriod">
+          <option disabled value="" selected="">select duration of notice period</option>
+          <option>15 days or less</option>
+          <option>1 Month</option>
+          <option>2 Months</option>
+          <option>3 Months</option>
+          <option> More than 3 Months</option>
+        </select>
+			</div>
+			<div class="form-row" style="margin-top: 1em;">
+				<div class="col">
+					<div class="md-form">
+						<input type="button" class="form-control" class="btn btn-primary" (click)="addSkill()" value="addSkill">
+          </div>
+					</div>
+				</div>
+
+				<div formArrayName="skills"
+					*ngFor="let skill of employmentFormGroup.controls.skills?.value; let i=index">
+					<div [formGroupName]="i">
+						<input class="form-control" formControlName="skillName" placeholder="Add New skill"><br>
+        </div>
+					</div>
+					<div class="form-group">
+						<select class="form-control" formControlName="industry">
+          <option disabled  value=""selected="">industry</option>
+          <option>Accounting/Finance</option>
+          <option>Animation</option>
+          <option>Banking</option>
+          <option>Construction/Engineering</option>
+          <option>Export/Import</option>
+          <option>Insurance</option>
+          <option>IT-Hardware & Networking</option>
+          <option>IT-Software/Software Services</option>
+          <option>Medical Devices/Equipments</option>
+          <option>Mining</option>
+        </select>
+					</div>
+					<div class="form-group">
+						<select class="form-control" formControlName="functionalArea">
+          <option disabled  value=""selected="">functionalArea</option>
+          <option>Accounts/Finance/Tax/CS</option>
+          <option>Agent</option>
+          <option>Banking/Insurance</option>
+          <option>Architecture</option>
+          <option>Engineering Design/R&D</option>
+          <option>Technical Staff/Support</option>
+          <option>IT Software-Client Server</option>
+          <option>IT Software-DBA</option>
+          <option>IT Software-ECommerce</option>
+          <option>IT Software-Embedded</option>
+          <option>IT Software-Middelware</option>
+          <option>IT Software-Mobile</option>
+        </select>
+					</div>
+					<div class="form-group">
+						<select class="form-control" formControlName="role">
+          <option disabled value="" selected="">role</option>
+          <option>Software Developer</option>
+          <option>Team Lead/Tech Lead</option>
+          <option>System Analyst</option>
+          <option>Tech Architect</option>
+          <option>Database Architect/Designer</option>
+          <option>DBA</option>
+          <option>Network Admin</option>
+          <option>System Admin</option>
+          <option>Business Analyst</option>
+          <option>QA</option>
+        </select>
+					</div>
+
+					<!-- <button class="btn btn-primary btn-block" (click)="addEmploymentDetail()">Continue</button> -->
+					<button class="btn btn-primary btn-block"[disabled]="!employmentFormGroup.valid" (click)="addEmploymentDetail()">Continue</button>
+		</form>
+	</div>
+	<!-- ==========================================education form=============================================== -->
+	<div *ngIf="education">
+		<h3>Add educational inforamtion</h3>
+		<form [formGroup]="educationDetailFormGroup">
+			<div class="form-group">
+				<select class="form-control" formControlName="qualification">
+          <option disabled value=""selected="">Highest Qualification</option>
+          <option>Doctrate/PhD</option>
+          <option>Masters/Post-Graduation</option>
+          <option>Graduation/Diploma</option>
+          <option>12th</option>
+          <option>10th</option>
+        </select>
+				<small class="form-text text-danger" *ngIf="educationDetailFormGroup.controls.qualification.invalid && educationDetailFormGroup.controls.qualification.touched" >this feild is require</small>
+			</div>
+			<div class="form-group">
+				<select class="form-control" formControlName="course">
+          <option disabled value="" selected="">cource</option>
+          <option>CA</option>
+          <option>CS</option>
+          <option>M.A.</option>
+          <option>M.Com</option>
+          <option>M.Ed</option>
+          <option>M.Tech</option>
+          <option>B.Tech/B.E.</option>
+          <option>B.Com</option>
+          <option>B.Ed</option>
+          <option>Other</option>
+        </select>
+				<small class="form-text text-danger" *ngIf="educationDetailFormGroup.controls.course.invalid && educationDetailFormGroup.controls.course.touched" >this feild is require</small>
+			</div>
+			<div class="form-group">
+				<select class="form-control" formControlName="specialization">
+          <option disabled value="" selected="">specialization</option>
+          <option>Anatomy</option>
+          <option>Ayurveda</option>
+          <option>Cardiology</option>
+          <option>Mechanical</option>
+          <option>Computers</option>
+          <option>Civil</option>
+          <option>Electrical</option>
+          <option>Other</option>
+        </select>
+				<small class="form-text text-danger" *ngIf="educationDetailFormGroup.controls.specialization.invalid && educationDetailFormGroup.controls.specialization.touched" >this feild is require</small>
+			</div>
+			<div class="form-group">
+				<input type="text" class="form-control" formControlName="institute" placeholder=" university/collage name" required>
+				<small class="form-text text-danger" *ngIf="educationDetailFormGroup.controls.institute.invalid && educationDetailFormGroup.controls.institute.touched" >this feild is require</small>
+			</div>
+			<div class="form-group">
+				<select class="form-control" formControlName="courceType">
+          <option selected=""value="" disabled >select type</option>
+          <option>Full Time</option>
+          <option>Part Time</option>
+          <option>Corresspondence</option>
+        </select>
+				<small class="form-text text-danger" *ngIf="employmentFormGroup.controls.courceType.invalid && employmentFormGroup.controls.courceType.touched" >this feild is require</small>
+			</div>
+			<div class="form-group">
+				<input type="number" class="form-control" formControlName="passingYear" placeholder="passingYear" required>
+				<small class="form-text text-danger" *ngIf="educationDetailFormGroup.controls.passingYear.invalid && educationDetailFormGroup.controls.passingYear.touched" >this feild is require</small>
+			</div>
+			<button class="btn btn-primary btn-block"[disabled]="!employmentFormGroup.valid" (click)="addEducationDetail()">Continue</button>
+		</form>
+	</div>
+</div>
